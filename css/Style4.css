@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body.page-two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f5ee;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.container {
+    background-color: #02122c;
+    padding: 2.5rem;
+    border-radius: 13px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    order: 1;
+}
+h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+p {
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: large;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+input {
+    border: 2px solid #5D5D5D;
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: #02122c;
+    color: #FFFFFF;
+}
+
+.btn-login {
+    background-color: #e55b10;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.btn-login:hover {
+    background-color: #E75C15;
+}
+
+.forgot-password {
+    color: #ccc;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.forgot-password a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.logoo {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoo img {
+    max-width: 100%;
+    height: auto;
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: row;
+    }
+
+    .container, .logoo {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .logoo {
+        justify-content: flex-end;
+    }
+
+    .logoo img {
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,227 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Page Layout */
+    body.page-Three {
+        display: flex;
+        min-height: 100vh;
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+        margin: 0; 
+    }
+
+    .sidebar {
+        width: 250px; 
+        background-color: #101732;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+
+    .sidebar a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        gap: 10px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+        margin-left: -10px;    
+    }
+
+
+    .sidebar a:hover, .sidebar a.active {
+        background-color: #ff4500;
+    }
+
+
+    .sidebar img {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .content {
+        margin-left: 250px; 
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 0; 
+        height: 100%;  
+        overflow-y: auto; 
+    }
+
+
+    .navbar {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px; 
+        background: white;
+        border-bottom: 1px solid #ccc;
+        position: sticky; 
+        top: 0;
+        z-index: 100;
+        margin: 0; 
+    }
+
+    .logo img {
+        width: 120px; 
+        height: auto;
+    }
+
+
+
+    .user-controls {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+
+    .user-management {
+        padding: 20px;
+        background: white;
+        margin-top: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .user-management h1 {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .user-management p {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .save-btn {
+        background-color: #E26016;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        float: right;
+        margin-bottom: 20px;
+        margin-top: -60px;
+    }
+
+    .save-btn:hover {
+        background-color: #d4540f;
+    }
+
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    th {
+        background-color: #0c1022;
+        color: white;
+    }
+
+    tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .name-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .name-container img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+
+    td.icon {
+        text-align: center;
+        background-color: #f4f4f4;
+    }
+
+    td.icon img {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.3s;
+    }
+
+    td.icon img:hover {
+        opacity: 1;
+    }
+
+
+    @media (max-width: 1024px) {
+        .navbar,
+        .dropdown,
+        .logout {
+            flex: 1 1 100%;
+            margin-bottom: 10px;
+        }
+
+        .save-btn {
+            float: none;
+            width: 100%;
+        }
+
+        table, thead, tbody, th, td, tr {
+            display: block;
+        }
+
+        thead {
+            display: none;
+        }
+
+        tr {
+            margin-bottom: 15px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        td {
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+        }
+
+        td:last-child {
+            border-bottom: none;
+        }
+    }
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+    <link rel="icon" href="assets/images/logo.png" sizes="64x64" type="image/png">
+    <link rel="stylesheet" href="css/Style5.css">
+</head>
+<body class="page-Three">
+    <div class="sidebar">
+        <a href="dashboard.html"><img src="assets/icons/Vector-2.png" alt="Dashboard"><span>Dashboard</span></a>
+        <a href="users.html"><img src="assets/icons/Vector-1.png" alt="Users"><span>Users</span></a>
+        <a href="cars.html"><img src="assets/icons/Vector-3.png" alt="Cars"><span>Cars</span></a>
+        <a href="message.html"><img src="assets/icons/Vector (1).png" alt="Message"><span>Message</span></a>
+    </div>
+    <div class="chat-section">
+        <div class="chat-list">
+            <div class="chat-search">
+                <input type="text" id="searchInput" placeholder="search" oninput="filterChats()">
+            </div>
+            <h3>Messages</h3>
+            <div id="chatList"></div> <!-- Dynamically populated chat list -->
+        </div>
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <img id="chatHeaderImage" src="" alt="User Photo" class="chat-header-image" style="display: none;">
+                    <h4 id="chatHeaderName">Select a User</h4>
+                </div>
+                <div class="chat-options">⋮</div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be dynamically added here -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Type a message">
+                <button id="sendMessageBtn">➤</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/message.js"></script>
+</body>
+</html>

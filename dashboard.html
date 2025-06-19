@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="assets/images/logo.png" sizes="64x64" type="image/png">
+    <link rel="stylesheet" href="css/Style55.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="page-Three">
+    <div class="sidebar">
+        <a href="dashboard.html"><img src="assets/icons/Vector-2.png" alt="Dashboard"><span>Dashboard</span></a>
+        <a href="users.html"><img src="assets/icons/Vector-1.png" alt="Users"><span>Users</span></a>
+        <a href="cars.html"><img src="assets/icons/Vector-3.png" alt="Cars"><span>Cars</span></a>
+        <a href="message.html"><img src="assets/icons/Vector (1).png" alt="Message"><span>Message</span></a>
+    </div>
+    <div class="content">
+        <div class="navbar">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Logo">   
+            </div>
+            <button class="logout">Logout</button>
+        </div>
+        <div class="container">
+            <div class="main-content">
+                <div class="filters">
+                </div>
+                <div class="stats">
+                    <div class="stat-box">
+                        <h3>Count of Cars</h3>
+                        <p id="countCars">53</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Count of Users</h3>
+                        <p id="countUsers">1065</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Count of founded cars</h3>
+                        <p id="countFoundedCars">1065</p>
+                    </div>
+                </div>
+                <div class="charts">
+                    <div class="chart-box">
+                        <h3>Recent Added Cars</h3>
+                        <table id="recentCarsTable">
+                            <thead>
+                                <tr>
+                                    <th>Plate Number</th>
+                                    <th>Upload Time</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="chart-box">
+                        <h3>User and Car Growth Over Time</h3>
+                        <canvas id="barChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Car Activity Distribution by Brand</h3>
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

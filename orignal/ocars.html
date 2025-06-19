@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+    <link rel="icon" href="assets/images/logo.png" sizes="64x64" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/Stylee.css">
+    <style>
+        /* Spinner for loading state */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #000;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="page-Three">
+    <noscript>
+        <div style="text-align: center; padding: 20px; background-color: #f8d7da; color: #721c24;">
+            JavaScript is disabled in your browser. Please enable JavaScript to use this page.
+        </div>
+    </noscript>
+
+    <div class="sidebar">
+        <a href="dashboard.html" aria-label="Go to Dashboard">
+            <img src="./assets/icons/Vector-2.png" alt="Dashboard" onerror="this.src='https://via.placeholder.com/24'; this.alt='Dashboard Icon';">
+            <span>Dashboard</span>
+        </a>
+        <a href="users.html" aria-label="Go to Users">
+            <img src="./assets/icons/Vector-1.png" alt="Users" onerror="this.src='https://via.placeholder.com/24'; this.alt='Users Icon';">
+            <span>Users</span>
+        </a>
+        <a href="cars.html" aria-label="Go to Cars">
+            <img src="./assets/icons/Vector-3.png" alt="Cars" onerror="this.src='https://via.placeholder.com/24'; this.alt='Cars Icon';">
+            <span>Cars</span>
+        </a>
+        <a href="message.html" aria-label="Go to Messages">
+            <img src="./assets/icons/Vector (1).png" alt="Message" onerror="this.src='https://via.placeholder.com/24'; this.alt='Message Icon';">
+            <span>Message</span>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="navbar">
+            <div class="logo">
+                <img src="./assets/images/logo.png" alt="Logo" onerror="this.src='https://via.placeholder.com/100'; this.alt='Logo Placeholder';">
+            </div>
+            <div class="user-controls">
+            </div>
+        </div>
+       <br>
+        <section class="cars-management">
+            <div class="header-container">
+                <div class="header-text">
+                  <h2>Manage Cars</h2>
+                  <p>Administer and oversee car listings and details within the platform.</p>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search by Plate Number">
+                    <button id="searchButton"><i class="fas fa-search"></i> Search</button>
+                </div>                
+              </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Thumbnail</th>
+                        <th>Plate Number</th>
+                        <th>Brand</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="carsTableBody">
+                    <!-- البيانات ستُضاف هنا ديناميكيًا -->
+                    <tr>
+                        <td colspan="5" style="text-align: center;"><div class="spinner"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="./js/car.js"></script>
+    <script>
+        // This script is likely added by Cloudflare for security/verification purposes
+        (function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92d57fdc4ff4e5f3',t:'MTc0NDE1NDQ2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+    </script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+/* Reset Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page Layout */
+body.page-Three {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0; 
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px; 
+    background-color: #101732;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-left: -10px;    
+}
+
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: #ff4500;
+}
+
+.sidebar img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Content Container */
+.content {
+    margin-left: 250px; 
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0; 
+    height: 100%;  
+    overflow-y: auto; 
+}
+
+
+.navbar {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; 
+    background: white;
+    border-bottom: 1px solid #ccc;
+    position: sticky; 
+    top: 0;
+    z-index: 100;
+    margin: 0; 
+}
+
+
+.logo img {
+    width: 120px; /* تقليل الحجم */
+    height: auto;
+}
+
+/* Dropdown Menu */
+.user-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* المسافة بين العناصر */
+    margin-left: auto; /* جعل العناصر تتحرك إلى أقصى اليمين */
+}
+
+/* Cars Management */
+.cars-management h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 35px;
+}
+
+.cars-management p {
+    margin-bottom: 10px;
+    font-size: 13px;
+    margin-left: 35px;
+    color: #000000;
+}
+
+.save-bbb {
+    background-color: #E26016;
+    color: white;
+    border: none;
+    padding: 18px 30px;
+    border-radius: 14px;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-left: 950px; /* تم تعديل المسافة قليلاً لليمين */
+    position: absolute;
+    top: 130px;
+    left: auto;
+    font-size: medium;
+}
+
+.save-bbb:hover {
+    background-color: #E26016;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #0c1022;
+    color: white;
+}
+
+.edit-btn,
+.delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.edit-btn {
+    color: #3498db;
+    margin-right: 10px;
+}
+
+.delete-btn {
+    color: #e74c3c;
+}
+
+.edit-btn:hover {
+    color: #2980b9;
+}
+
+.delete-btn:hover {
+    color: #c0392b;
+}
+
+.update-btn i,
+.delete-btn i {
+    font-size: 18px;
+    pointer-events: none;
+}
+.delete-btn i {
+    color: #101732;
+    font-size: 18px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  .header-text h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #101732;
+  }
+
+  .header-text p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+  }
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+#searchInput {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+#searchButton {
+    padding: 8px 15px;
+    background-color: #101732;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #0d1330;
+}
