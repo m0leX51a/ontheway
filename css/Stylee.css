@@ -127,17 +127,41 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    table-layout: fixed; /* Ensure consistent column widths */
 }
 
 th, td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 th {
     background-color: #0c1022;
     color: white;
+    width: auto; /* Allow dynamic width */
+}
+
+th:nth-child(1) { width: 80px; } /* Thumbnail */
+th:nth-child(2) { width: 120px; } /* Plate Number */
+th:nth-child(3) { width: 100px; } /* Brand */
+th:nth-child(4) { width: 100px; } /* Model */
+th:nth-child(5) { width: 200px; } /* Location (increased for long values) */
+th:nth-child(6) { width: 150px; } /* Uploaded By */
+th:nth-child(7) { width: 150px; } /* Email */
+th:nth-child(8) { width: 100px; } /* Actions */
+
+.location-link {
+    font-size: 12px; /* Reduced font size for location */
+    color: #007bff; /* Link color */
+    text-decoration: none;
+}
+
+.location-link:hover {
+    text-decoration: underline;
 }
 
 .update-btn,

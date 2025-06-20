@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const apiBaseUrl = 'https://ontheway.runasp.net/api/Car/';
     const detailsBaseUrl = 'https://ontheway.runasp.net/api/CarDetails/';
+    const usersApiUrl = 'https://ontheway.runasp.net/GetAll';
     const tbody = document.getElementById('carsTableBody');
     let carsData = [];
     let colors = [];
     let brands = [];
+    let usersData = [];
 
     const token = localStorage.getItem('authToken');
 
@@ -13,20 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Fetch initial data
+    // Fetch initial data including users
     async function fetchInitialData() {
         try {
-            const [colorsResp, brandsResp] = await Promise.all([
+            const [colorsResp, brandsResp, usersResp] = await Promise.all([
                 fetch(`${detailsBaseUrl}colors`, { headers: { 'Authorization': `Bearer ${token}` } }),
-                fetch(`${detailsBaseUrl}brands`, { headers: { 'Authorization': `Bearer ${token}` } })
+                fetch(`${detailsBaseUrl}brands`, { headers: { 'Authorization': `Bearer ${token}` } }),
+                fetch(usersApiUrl, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': '*/*' } })
             ]);
-            if (!colorsResp.ok || !brandsResp.ok) throw new Error('Failed to fetch initial data');
+            if (!colorsResp.ok || !brandsResp.ok || !usersResp.ok) throw new Error('Failed to fetch initial data');
             colors = await colorsResp.json();
             brands = await brandsResp.json();
+            usersData = await usersResp.json();
             fetchCars();
         } catch (error) {
             console.error('Error fetching initial data:', error);
-            tbody.innerHTML = `<tr><td colspan="6">Failed to load initial data: ${error.message}</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="8">Failed to load initial data: ${error.message}</td></tr>`;
         }
     }
 
@@ -46,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => {
                 console.error('Error fetching cars:', error);
-                tbody.innerHTML = `<tr><td colspan="6">Failed to load cars: ${error.message}</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="8">Failed to load cars: ${error.message}</td></tr>`;
             });
     }
 
@@ -56,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
         cars.forEach(car => {
             const identifier = car.id ?? car.plateNumber;
             if (!identifier) return;
+            const uploader = usersData.find(u => u.id === car.userId) || { firstName: 'Unknown', lastName: '', email: '' };
+            const uploadedBy = `${uploader.firstName} ${uploader.lastName || ''}`;
+            const email = uploader.email || '';
             const tr = document.createElement('tr');
             tr.setAttribute('data-identifier', identifier);
             tr.innerHTML = `
@@ -67,7 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${car.plateNumber ?? ''}</td>
                 <td>${car.brandName ?? ''}</td>
                 <td>${car.modelName ?? ''}</td>
-                <td>${car.location ?? ''}</td>
+                <td><a href="${car.location}" target="_blank" class="location-link">${car.location ?? ''}</a></td>
+                <td>${uploadedBy}</td>
+                <td>${email}</td>
                 <td>
                     <button class="update-btn" data-identifier="${identifier}" title="Update">
                         <i class="fas fa-pen"></i>
@@ -223,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 car.plateNumber?.toLowerCase().includes(searchTerm)
             );
             if (filteredCars.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" style="text-align: center;">No cars found for plate number: "${searchTerm}"</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="8" style="text-align: center;">No cars found for plate number: "${searchTerm}"</td></tr>`;
             } else {
                 displayCars(filteredCars);
             }
