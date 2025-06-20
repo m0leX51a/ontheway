@@ -208,15 +208,19 @@ function processUserMessages(userData, userId) {
         const messageContainer = document.createElement('div');
         messageContainer.className = `message-container ${message.type}`;
         
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${message.type}`;
-        messageDiv.textContent = message.message || '';
-        
+        const messageContent = document.createElement('span');
+        messageContent.className = 'message-content';
+        messageContent.textContent = message.message || '';
+
         const timeSpan = document.createElement('span');
         timeSpan.className = 'message-time';
-        timeSpan.textContent = new Date(message.timestamp).toLocaleTimeString();
+        timeSpan.textContent = new Date(message.timestamp).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${message.type}`;
+        messageDiv.appendChild(messageContent);
         messageDiv.appendChild(timeSpan);
-        
+
         messageContainer.appendChild(messageDiv);
         chatMessages.appendChild(messageContainer);
     });
@@ -242,15 +246,19 @@ async function sendMessage(userId, message) {
         const messageContainer = document.createElement('div');
         messageContainer.className = 'message-container sent';
         
-        const messageDiv = document.createElement('div');
-        messageDiv.className = 'message sent';
-        messageDiv.textContent = message;
-        
+        const messageContent = document.createElement('span');
+        messageContent.className = 'message-content';
+        messageContent.textContent = message;
+
         const timeSpan = document.createElement('span');
         timeSpan.className = 'message-time';
-        timeSpan.textContent = new Date().toLocaleTimeString();
+        timeSpan.textContent = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message sent';
+        messageDiv.appendChild(messageContent);
         messageDiv.appendChild(timeSpan);
-        
+
         messageContainer.appendChild(messageDiv);
         chatMessages.appendChild(messageContainer);
         
@@ -313,6 +321,11 @@ document.addEventListener('DOMContentLoaded', () => {
             font-size: 0.7em;
             color: #999;
             margin-left: 8px;
+            display: inline-block;
+        }
+        .message-content {
+            display: inline-block;
+            margin-right: 10px;
         }
         .refresh-button:hover {
             background: #0056b3 !important;
